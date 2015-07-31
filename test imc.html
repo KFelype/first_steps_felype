@@ -1,0 +1,18 @@
+<meta charset="UTF-8">
+
+<script>
+
+    var mostra = function(frase) {
+    document.write(frase);
+	}
+	
+	var calculaIMC = function(altura, peso) { //Com o IMC em uma função, podemos facilmente reutilizar ela e calcular o IMC para várias pessoas diferentes; basta chamar a função calculaIMC().
+    var imc = peso / (altura * altura);
+    mostra("IMC calculado é " + imc);
+};
+
+var pesoDoPrimo = 83;
+var alturaDoPrimo = 1.76;
+calculaIMC(alturaDoPrimo, pesoDoPrimo);
+
+</script>

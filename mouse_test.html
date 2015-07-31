@@ -1,0 +1,48 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+c.fillStyle = "gray";
+c.fillRect(0,0,600,400);
+/*callback pra mostrar a coord do clique e desenhar um circulo.*/
+
+desenhaCirculo = function(evento, color){
+	var x = evento.pageX - tela.offsetLeft;
+	var y = evento.pageY - tela.offsetTop;
+		c.fillStyle = color;
+		c.beginPath();
+		c.arc(x, y, 10, 0, 2 * 3.14);
+		c.fill();
+			console.log("Posição do clique " + x + "," + y);
+				
+}				
+/* se o click for com botao direito desenha bola vermelha, 
+se for esquerdo desenha bola azul. Tbm mostra as coord no log.*/
+click = function() {
+	if(event.button == 2){
+		event.preventDefault();
+		desenhaCirculo(event, color = "red");
+	};
+	if(event.button == 0){
+		desenhaCirculo(event, color = "blue");
+	};
+}
+
+tela.onmousedown = click;
+
+/*tela.onclick = function(evento){
+    console.log("botao esquerdo");
+    ...
+};
+
+tela.oncontextmenu = function (evento) {
+    console.log("botao direito");
+    ...
+    evento.preventDefault();
+};
+*/
+
+</script>

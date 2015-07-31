@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+
+<script>
+
+var pulaLinha = function() {
+    document.write("<br>");
+    };
+	
+var mostra = function(frase) {
+    document.write(frase);
+    pulaLinha();
+	pulaLinha();
+    }	
+
+var nome = prompt("Bom Dia! Qual é o seu nome?"); //Ele deverá exibir o nome que você digitou. Veja que a função prompt() devolve o que o usuário digitou; você deve colocar o resultado em uma variável, igual fizemos com nome.
+mostra("Bem vindo, " + nome);
+
+var idade = prompt(nome + ", quantos anos você tem?");
+mostra(nome + " tem " + idade + " anos.");
+
+</script>

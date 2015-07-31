@@ -1,0 +1,58 @@
+﻿<meta charset = "UTF - 8">
+
+<input type="text" id="numero" />
+<input type="submit" value="Diga 6 numero!" id="tentativas" />
+
+<script>
+
+var loteria = [];
+
+for (var i = 0; i < 6; i++){
+	var numeroSorteado = Math.round(Math.random() * 59 )+1;
+	loteria[i]=numeroSorteado;
+}
+
+var numerosEscolhidos = [];
+	
+for (var i = 0; i < 6; i++) {
+	var numerosEscolhido = prompt("Digite um número");
+	numerosEscolhidos[i]=numerosEscolhido;
+}
+
+var acertos = 0;
+
+for(var i = 0; i < loteria.length; i++){
+	for(var j = 0; j < numerosEscolhidos.length; j++){
+		if(loteria[i] == numerosEscolhidos[j]){
+			acertos++; 
+		}
+	}
+}
+	alert("Você acertou " + acertos + " vezes!");
+
+/*
+var caixaDoNumero = document.getElementById("numero");
+
+var botaoClicado = function() {
+
+	var acerto = false;
+
+	for(var i = 0; i < loteria.length; i++) {
+		if(loteria[i] == caixaDoNumero.value) {
+			acerto = true;
+			break;
+		}
+	}
+	
+	if(acerto) {
+		alert("Parabéns! Você acertou" + caixaDoNumero.value + "números do loteria!");
+	} 
+	else {	
+		alert("Infelizmente, você errou" + caixaDoNumero.value + "números da loteria");
+	}
+}
+
+var botaoTentativas = document.getElementById("tentativas");
+botaoTentativas.onclick = botaoClicado;
+*/
+</script>

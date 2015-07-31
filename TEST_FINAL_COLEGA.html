@@ -1,0 +1,56 @@
+﻿<script>
+
+// Sorteio de 6 números
+var sorteados = [];
+
+while (sorteados.length < 6) {
+var insere = true;
+var numeroSorteado = Math.round(Math.random() * 60);
+
+for(var i = 0; i < sorteados.length; i++) {
+if(sorteados[i] == numeroSorteado) {
+insere = false;
+}
+}
+
+if (insere) {
+sorteados.push(numeroSorteado);
+console.log(sorteados);
+}
+}
+
+// Usuário informa 6 números
+var numerosUsuario = [];
+
+while (numerosUsuario.length < 6) {
+var insere = true;
+var numeroUsuario = prompt("Diga um número entre 1 e 60");
+
+for(var i = 0; i < numerosUsuario.length; i++ ) {
+if(numerosUsuario[i] == numeroUsuario) {
+alert("Número já informado!");
+insere = false;
+}
+}
+
+if (insere) {
+numerosUsuario.push(numeroUsuario);
+console.log(numerosUsuario);
+}
+}
+
+// Compara os números
+
+var iguais = 0;
+
+for (var i = 0; i < numerosUsuario.length; i++ ) {
+for (var j = 0; j < sorteados.length; j++ ) {
+if (numerosUsuario[i] == sorteados[j]) {
+iguais++;
+}
+}
+}
+
+alert("Você acertou " + iguais + " números");
+
+</script>

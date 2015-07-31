@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+
+<script>
+
+var mostra = function(frase) {
+    document.write(frase);
+	}
+	
+var calculaIMC = function (altura, peso) {
+	var imc = peso / (altura * altura);
+}
+
+var imc = calculaIMC(1.75, 71);//Não vai funcionar. Você poderia fazer o mesmo nas outras linhas, colocando calculaIMC(altura, peso) em vez da variável, mas o navegador vai, a cada chamada, recalcular o IMC, sendo que da forma anterior esse número foi calculado apenas uma única vez e reaproveitado.
+    mostra("Meu imc é " + imc);
+
+</script>

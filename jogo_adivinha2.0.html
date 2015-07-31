@@ -1,0 +1,28 @@
+﻿<script> 
+ 
+var pulaLinha = function() {
+    document.write("<br>");
+    };
+	
+var mostra = function(frase) {
+    document.write(frase);
+    pulaLinha();
+	pulaLinha();
+    };
+	
+var numeroPensado = Math.round(Math.random () * 100);
+var numeroDeTentativas = 1;
+
+while(numeroDeTentativas <= 3){
+	var chute = prompt("Já pensei. Qual você acha que é?");
+	
+	if (chute == numeroPensado) {
+		mostra ("Uau! você acertou, pois eu pensei no " + numeroPensado + ".");
+		break;
+	} else { //O else nos ajuda a executar algo quando a condição anterior não é verdadeira.
+		mostra ("Você errou. Será que ainda tem mais tentativas?");
+	}
+	
+	numeroDeTentativas++;
+}	
+</script>

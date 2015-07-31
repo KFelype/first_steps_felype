@@ -1,0 +1,62 @@
+<canvas id="tela" width="600" height="400"></canvas> //cria uma tela para podermos trabalahr o canvas
+
+<script>
+
+var raio = 10; // define raio do círculo
+
+var alvoX; // define a variável x que estabelece a posição x do alvo
+var alvoY; // define a variável y que estabelece a posição y do alvo
+
+//variáveis para podermos trabalahr na tela, veja mais explicações na aula 01 e 02
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+// função que cria os círculos coloridos para podermos simular um alvo (chama 4 círculos, um sobrepondo o outro, para criar o efeito do alvo)
+var desenhaAlvo = function(x, y) {
+    circulo(x, y, raio+30, "white"); // desenha círculo branco de raio 40 (10+30)
+    circulo(x, y, raio+20, "red"); // desenha circulo vermelho de raio 10+20
+    circulo(x, y, raio+10, "white"); //esenha circulo branco de raio 10+10
+    circulo(x, y, raio, "red"); //desenha circulo vermelho de raio 10 (definido na var raio)
+};
+
+// função que desenha os círculos, recomendo colocá-la antes da função desenhaAlvo, para melhor leitura do código
+var circulo = function(x,y,raio, cor) {   // aqui define as variáveis da função circulo, que são x e y (posição), raio (tamanho do raio do circulo) e cor (cor do circulo)
+    c.fillStyle = cor;  //define o fillStyle como parametro da função
+    c.beginPath();
+    c.arc(x,y,raio, 0, 2*Math.PI);
+    c.fill(); // os 3 comandos desenham e definem um círculo preenchido com a cor escolhida
+}
+
+//faz com que o canvas seja apagado, se não iriam ser criados vários alvos conforme a tela rodasse (pode experimentar tirar pra ver o que acontece)
+var limpa = function() {
+    c.clearRect(0,0,600,400);
+}
+
+// função para definir o sorteio da posição do alvo, gerando uma posição x e y randomica
+var sorteia = function(max) {
+    return Math.floor(Math.random() * max);
+}
+
+// função que desenha e define a posição do alvo no canvas
+var desenha = function() {
+  limpa(); // limpa a tela para não criar infinitos alvos
+  alvoX = sorteia(600); // sorteia a posição x para desenhar o alvo
+  alvoY = sorteia(400); // sorteia a posição y para desenhar o alvo
+  desenhaAlvo(alvoX, alvoY); // função que desenha o alvo com as variáveis alvoX e alvoY
+};
+
+setInterval(desenha, 3000); // seleciona o intervalo em que será executada a função desenha
+
+tela.onclick = function(evento) {     // define a função que será chamada com o clique esquerdo do mouse 
+    var x = evento.pageX - tela.offsetLeft; // recebe a variável x do poonteiro do mouse
+    var y = evento.pageY - tela.offsetTop; // recebe a variável y do ponteiro do mouse
+
+//fórmula matemática para comparar se o usuário clicou dentro do alvo, necessita de uma compreensão de matemática e não de programação em si, mas basicamente ele compara se o ponto em que você clicou está dentro do alvo na tela
+//se fosse somente igualar teria que acertar o alvo bem no centro e com uma precisão sobre humana, por isso calcula que você tenha acertado o alvo dentro do espaço
+//assim temos que acertar o alvo e não o ponto, se você pensar bem, acertar o alvo é acertar qualquer número entre o ponto alvoX + 10 e alvoX -10, e qualquer ponto entre o alvoY+10 e alvoY-10. Caso não tenha ficado claro procure estudar conceitos de gráficos matemáticos básicos.
+    if((x > alvoX - raio) && (x < alvoX + raio) && (y > alvoY - raio) && (y < alvoY + raio)) {
+            alert("acertou!");
+    }
+}
+
+</script>

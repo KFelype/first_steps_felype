@@ -1,0 +1,19 @@
+﻿<script>
+
+var totalDeAlunos = prompt("Quantos alunos são?");
+
+var numero = 1;
+var somaDasNotas = 0;
+
+while(numero <=totalDeAlunos) {
+	var notasTexto = prompt("Qual é a nota do aluno?");
+	var notas = parseInt(notasTexto);
+	
+	somaDasNotas = somaDasNotas + notas;
+	numero++;
+}
+
+var media = somaDasNotas / totalDeAlunos;
+alert("A média dos alunos são: " + media);
+
+</script>	

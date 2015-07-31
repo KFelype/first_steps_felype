@@ -1,0 +1,22 @@
+﻿<script>
+
+var pulaLinha = function() {
+    document.write("<br>");
+    };
+	
+var mostra = function(frase) {
+    document.write(frase + "<br/>");
+    pulaLinha();
+	pulaLinha();
+    };
+
+var anoDeOlimpiadas = parseInt (prompt("Qual o ano inicial das Olimpíadas?"));
+var anoLimiteOlimpiadas = parseInt (prompt("Qual o ano limite das Olimpíadas?"));
+
+for (anoDeOlimpiadas; anoDeOlimpiadas <= anoLimiteOlimpiadas; anoDeOlimpiadas = anoDeOlimpiadas + 4){
+	mostra(anoDeOlimpiadas + " tem Olimpíadas!");	
+}
+
+mostra ("Ufa! Estes são os anos de Olimpíadas até " + anoLimiteOlimpiadas + ".");
+
+</script>

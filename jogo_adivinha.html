@@ -1,0 +1,30 @@
+ <meta charset="UTF-8">
+ 
+ <script> 
+ 
+var pulaLinha = function() {
+    document.write("<br>");
+    };
+	
+var mostra = function(frase) {
+    document.write(frase);
+    pulaLinha();
+	pulaLinha();
+    };
+	
+var numeroPensado = Math.round(Math.random () * 100);
+var chute = prompt ("Já pensei. Qual você acha que é?");
+
+	if (chute == numeroPensado) {
+		mostra ("Uau! você acertou, pois eu pensei no " + numeroPensado);
+	} else {//O else nos ajuda a executar algo quando a condição anterior não é verdadeira.
+
+	if (chute < numeroPensado){
+		mostra ("O seu número está " + (numeroPensado - chute) + " abaixo do número pensado!");
+	} else {
+		mostra (" O seu número está " + (chute - numeroPensado) + " acima do número pensado!");
+	}
+	mostra ("Você errou, eu tinha pensado no " + numeroPensado);
+}
+
+</script>

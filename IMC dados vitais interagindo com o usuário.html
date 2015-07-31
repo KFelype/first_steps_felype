@@ -1,0 +1,25 @@
+﻿ <meta charset="UTF-8">
+ 
+ <script> 
+	var pulaLinha = function() {
+    document.write("<br>");
+    };
+    var mostra = function(frase) {
+    document.write(frase);
+    pulaLinha();
+	pulaLinha();
+    };	
+	
+	var nome = prompt ("Boa Tarde, Qual o seu nome?");
+	mostra ("Seja bem vindo, " + nome);
+		
+	var idade = prompt ("Qual a sua idade?");
+	mostra ("Sua idade é: " + idade + " anos."); 
+	
+	var dias = idade * 365;
+	mostra ("Você já viveu:" + dias + " dias de vida!");
+	
+	var batimentosCardiacos = dias * 24 * 60 * 80;
+	mostra ("O seu coração já bateu: " + batimentosCardiacos + " vezes. Haja coração!");
+		
+</script>
